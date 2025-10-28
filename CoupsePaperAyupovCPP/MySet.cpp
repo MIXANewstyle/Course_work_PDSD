@@ -156,7 +156,7 @@ bool MySet::IsEqualitySets(MySet Set)
 //F11
 MySet MySet::CombiningTwoSets(MySet Set)
 {
-	MySet result; // Óêàçàòåëü íà ðåçóëüòèðóþùèé ñïèñîê
+	MySet result;
 	Node* firstElemA = Set._head;
 
 	while (firstElemA)
@@ -165,7 +165,7 @@ MySet MySet::CombiningTwoSets(MySet Set)
 		firstElemA = firstElemA->next;
 	}
 
-	Node* current = this->_head;
+	Node* current = _head;
 	while (current)
 	{
 		result.AddToBegin(current->val);

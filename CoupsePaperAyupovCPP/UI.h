@@ -12,17 +12,10 @@ class UI
 public:
 	void run();
 private:
-	bool _programEnd = false;
-	int _powerOfNode;
-	int _powerOfMySet;
-	int _powerOfList;
-	int _powerOfSet;
-	int _powerOfMap;
-	int _powerOfMultimap;
+	int _powerOfSetA;
+	int _powerOfSetB;
 	void showTable();
-	void showMenu();
 	void enterPowerOfSets();
-	void createSets();
 	void clearConsole();
 };
 

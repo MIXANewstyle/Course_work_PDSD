@@ -1,48 +1,53 @@
 #pragma once
 #include <iostream>
+#include <chrono>
 #include "MySet.h"
 #include "Node.h"
 #include "ListSet.h"
 #include "SetSet.h"
 #include "MapSet.h"
 #include "MultimapSet.h"
+#include "Times.h"
 
-using namespace std; 
+using namespace std;
+using namespace chrono;
 
 class MeasureStructs
 {
 public:
-	MeasureStructs(int powerOfNode, int powerOfMySet, int powerOfList, int powerOfSet, int powerOfMap, int powerOfMultimap);
-	int measureCreateTime();
-	int measureSizeTime();
-	int measureSubsetAATime();
-	int measureSubsetABTime();
-	int measureEqualityAATime();
-	int measureEqualityABTime();
-	int measureCombiningTime();
-	int measureIntersectionTime();
-	int measureDifferenceTime();
-	int measureSymmetricDifferenceTime();
-
+	MeasureStructs(int powerOfSetA, int powerOFSetB);
+	Times* getCreateTime();
+	Times* getSizeTime();
+	Times* getUnderAATime();
+	Times* getUnderABTime();
+	Times* getEqualityAATime();
+	Times* getEqualityABTime();
+	Times* getCombiningTime();
+	Times* getIntersectionTime();
+	Times* getDifferenceTime();
+	Times* get2DifferenceTime();
+	Times* getSymmetricDifferenceTime();
 private:
+	int _powerOfSetA;
+	int _powerOfSetB;
 
 	Node* _myNodeA;
 	Node* _myNodeB;
 
-	MySet _mySetA;
-	MySet _mySetB;
+	MySet* _mySetA;
+	MySet* _mySetB;
 
-	ListSet _listSetA;
-	ListSet _listSetB;
+	ListSet* _listSetA;
+	ListSet* _listSetB;
 
-	SetSet _setSetA;
-	SetSet _setSetB;
+	SetSet* _setSetA;
+	SetSet* _setSetB;
 
-	MapSet _mapSetA;
-	MapSet _mapSetB;
+	MapSet* _mapSetA;
+	MapSet* _mapSetB;
 
-	MultimapSet _multimapSetA;
-	MultimapSet _multimapSetB;
+	MultimapSet* _multimapSetA;
+	MultimapSet* _multimapSetB;
 
 };
 

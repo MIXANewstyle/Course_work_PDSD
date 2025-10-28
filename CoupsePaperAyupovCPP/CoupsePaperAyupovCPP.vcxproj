@@ -135,6 +135,7 @@
     <ClCompile Include="MySet.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="SetSet.cpp" />
+    <ClCompile Include="Times.cpp" />
     <ClCompile Include="UI.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +146,7 @@
     <ClInclude Include="MySet.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="SetSet.h" />
+    <ClInclude Include="Times.h" />
     <ClInclude Include="UI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
