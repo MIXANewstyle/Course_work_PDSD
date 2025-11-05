@@ -6,7 +6,7 @@
 #include "ListSet.h"
 #include "SetSet.h"
 #include "MapSet.h"
-#include "MultimapSet.h"
+#include "UnorderedMapSet.h"
 #include "Times.h"
 
 using namespace std;
@@ -46,8 +46,8 @@ private:
 	MapSet* _mapSetA;
 	MapSet* _mapSetB;
 
-	MultimapSet* _multimapSetA;
-	MultimapSet* _multimapSetB;
+	UnorderedMapSet* _unorderedMapSetA;
+	UnorderedMapSet* _unorderedMapSetB;
 
 };
 

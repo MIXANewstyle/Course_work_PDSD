@@ -137,6 +137,7 @@
     <ClCompile Include="SetSet.cpp" />
     <ClCompile Include="Times.cpp" />
     <ClCompile Include="UI.cpp" />
+    <ClCompile Include="UnorderedmapSet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ListSet.h" />
@@ -148,6 +149,7 @@
     <ClInclude Include="SetSet.h" />
     <ClInclude Include="Times.h" />
     <ClInclude Include="UI.h" />
+    <ClInclude Include="UnorderedMapSet.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
