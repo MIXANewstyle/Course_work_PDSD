@@ -3,6 +3,20 @@
 MeasureStructs::MeasureStructs(int powerOfSetA, int powerOfSetB) {
 	_powerOfSetA = powerOfSetA;
 	_powerOfSetB = powerOfSetB;
+
+	// ћы инициализируем указатели здесь, чтобы избежать мусора
+	_myNodeA = nullptr;
+	_myNodeB = nullptr;
+	_mySetA = nullptr;
+	_mySetB = nullptr;
+	_listSetA = nullptr;
+	_listSetB = nullptr;
+	_setSetA = nullptr;
+	_setSetB = nullptr;
+	_mapSetA = nullptr;
+	_mapSetB = nullptr;
+	_unorderedMapSetA = nullptr;
+	_unorderedMapSetB = nullptr;
 }
 
 Times* MeasureStructs::getCreateTime() {
@@ -10,7 +24,7 @@ Times* MeasureStructs::getCreateTime() {
 	_myNodeA = createNewSet(_powerOfSetA, 0, 999);
 	auto end = high_resolution_clock::now();
 	auto nodeTime = duration_cast<microseconds>(end - start);
-	
+
 	start = high_resolution_clock::now();
 	_mySetA = new MySet(_powerOfSetA, 0, 999);
 	end = high_resolution_clock::now();
@@ -31,19 +45,23 @@ Times* MeasureStructs::getCreateTime() {
 	end = high_resolution_clock::now();
 	auto mapSetTime = duration_cast<microseconds>(end - start);
 
-	start = high_resolution_clock::now();
-	_multimapSetA = new MultimapSet(_powerOfSetA, 0, 999);
-	end = high_resolution_clock::now();
-	auto multimapSetTime = duration_cast<microseconds>(end - start);
 
+	start = high_resolution_clock::now();
+	_unorderedMapSetA = new UnorderedMapSet(_powerOfSetA, 0, 999);
+	end = high_resolution_clock::now();
+	auto unorderedMapSetTime = duration_cast<microseconds>(end - start);
+
+
+	// —оздаем множества B (без замера)
 	_myNodeB = createNewSet(_powerOfSetB, 0, 999);
 	_mySetB = new MySet(_powerOfSetB, 0, 999);
 	_listSetB = new ListSet(_powerOfSetB, 0, 999);
 	_setSetB = new SetSet(_powerOfSetB, 0, 999);
 	_mapSetB = new MapSet(_powerOfSetB, 0, 999);
-	_multimapSetB = new MultimapSet(_powerOfSetB, 0, 999);
+	_unorderedMapSetB = new UnorderedMapSet(_powerOfSetB, 0, 999); 
 
-	return new Times(nodeTime, mySetTime, listSetTime, setSetTime, mapSetTime, multimapSetTime);
+
+	return new Times(nodeTime, mySetTime, listSetTime, setSetTime, mapSetTime, unorderedMapSetTime);
 }
 Times* MeasureStructs::getSizeTime() {
 	auto start = high_resolution_clock::now();
@@ -71,12 +89,14 @@ Times* MeasureStructs::getSizeTime() {
 	end = high_resolution_clock::now();
 	auto mapSetTime = duration_cast<microseconds>(end - start);
 
-	start = high_resolution_clock::now();
-	_multimapSetA->GetPowerOfSet();
-	end = high_resolution_clock::now();
-	auto multimapSetTime = duration_cast<microseconds>(end - start);
 
-	return new Times(nodeTime, mySetTime, listSetTime, setSetTime, mapSetTime, multimapSetTime);
+	start = high_resolution_clock::now();
+	_unorderedMapSetA->GetPowerOfSet();
+	end = high_resolution_clock::now();
+	auto unorderedMapSetTime = duration_cast<microseconds>(end - start);
+
+	return new Times(nodeTime, mySetTime, listSetTime, setSetTime, mapSetTime, unorderedMapSetTime);
+
 }
 Times* MeasureStructs::getUnderAATime() {
 	auto start = high_resolution_clock::now();
@@ -104,12 +124,14 @@ Times* MeasureStructs::getUnderAATime() {
 	end = high_resolution_clock::now();
 	auto mapSetTime = duration_cast<microseconds>(end - start);
 
-	start = high_resolution_clock::now();
-	_multimapSetA->IsUnderSet(*_multimapSetA);
-	end = high_resolution_clock::now();
-	auto multimapSetTime = duration_cast<microseconds>(end - start);
 
-	return new Times(nodeTime, mySetTime, listSetTime, setSetTime, mapSetTime, multimapSetTime);
+	start = high_resolution_clock::now();
+	_unorderedMapSetA->IsUnderSet(*_unorderedMapSetA);
+	end = high_resolution_clock::now();
+	auto unorderedMapSetTime = duration_cast<microseconds>(end - start);
+
+	return new Times(nodeTime, mySetTime, listSetTime, setSetTime, mapSetTime, unorderedMapSetTime);
+
 }
 Times* MeasureStructs::getUnderABTime() {
 	auto start = high_resolution_clock::now();
@@ -137,12 +159,14 @@ Times* MeasureStructs::getUnderABTime() {
 	end = high_resolution_clock::now();
 	auto mapSetTime = duration_cast<microseconds>(end - start);
 
-	start = high_resolution_clock::now();
-	_multimapSetA->IsUnderSet(*_multimapSetB);
-	end = high_resolution_clock::now();
-	auto multimapSetTime = duration_cast<microseconds>(end - start);
 
-	return new Times(nodeTime, mySetTime, listSetTime, setSetTime, mapSetTime, multimapSetTime);
+	start = high_resolution_clock::now();
+	_unorderedMapSetA->IsUnderSet(*_unorderedMapSetB);
+	end = high_resolution_clock::now();
+	auto unorderedMapSetTime = duration_cast<microseconds>(end - start);
+
+	return new Times(nodeTime, mySetTime, listSetTime, setSetTime, mapSetTime, unorderedMapSetTime);
+
 }
 Times* MeasureStructs::getEqualityAATime() {
 	auto start = high_resolution_clock::now();
@@ -170,12 +194,14 @@ Times* MeasureStructs::getEqualityAATime() {
 	end = high_resolution_clock::now();
 	auto mapSetTime = duration_cast<microseconds>(end - start);
 
-	start = high_resolution_clock::now();
-	_multimapSetA->IsEqualitySets(*_multimapSetA);
-	end = high_resolution_clock::now();
-	auto multimapSetTime = duration_cast<microseconds>(end - start);
 
-	return new Times(nodeTime, mySetTime, listSetTime, setSetTime, mapSetTime, multimapSetTime);
+	start = high_resolution_clock::now();
+	_unorderedMapSetA->IsEqualitySets(*_unorderedMapSetA);
+	end = high_resolution_clock::now();
+	auto unorderedMapSetTime = duration_cast<microseconds>(end - start);
+
+	return new Times(nodeTime, mySetTime, listSetTime, setSetTime, mapSetTime, unorderedMapSetTime);
+
 }
 Times* MeasureStructs::getEqualityABTime() {
 	auto start = high_resolution_clock::now();
@@ -203,12 +229,14 @@ Times* MeasureStructs::getEqualityABTime() {
 	end = high_resolution_clock::now();
 	auto mapSetTime = duration_cast<microseconds>(end - start);
 
-	start = high_resolution_clock::now();
-	_multimapSetA->IsEqualitySets(*_multimapSetB);
-	end = high_resolution_clock::now();
-	auto multimapSetTime = duration_cast<microseconds>(end - start);
 
-	return new Times(nodeTime, mySetTime, listSetTime, setSetTime, mapSetTime, multimapSetTime);
+	start = high_resolution_clock::now();
+	_unorderedMapSetA->IsEqualitySets(*_unorderedMapSetB);
+	end = high_resolution_clock::now();
+	auto unorderedMapSetTime = duration_cast<microseconds>(end - start);
+
+	return new Times(nodeTime, mySetTime, listSetTime, setSetTime, mapSetTime, unorderedMapSetTime);
+
 }
 Times* MeasureStructs::getCombiningTime() {
 	auto start = high_resolution_clock::now();
@@ -236,12 +264,14 @@ Times* MeasureStructs::getCombiningTime() {
 	end = high_resolution_clock::now();
 	auto mapSetTime = duration_cast<microseconds>(end - start);
 
-	start = high_resolution_clock::now();
-	_multimapSetA->CombiningTwoSets(*_multimapSetB);
-	end = high_resolution_clock::now();
-	auto multimapSetTime = duration_cast<microseconds>(end - start);
 
-	return new Times(nodeTime, mySetTime, listSetTime, setSetTime, mapSetTime, multimapSetTime);
+	start = high_resolution_clock::now();
+	_unorderedMapSetA->CombiningTwoSets(*_unorderedMapSetB);
+	end = high_resolution_clock::now();
+	auto unorderedMapSetTime = duration_cast<microseconds>(end - start);
+
+	return new Times(nodeTime, mySetTime, listSetTime, setSetTime, mapSetTime, unorderedMapSetTime);
+
 }
 Times* MeasureStructs::getIntersectionTime() {
 	auto start = high_resolution_clock::now();
@@ -269,12 +299,14 @@ Times* MeasureStructs::getIntersectionTime() {
 	end = high_resolution_clock::now();
 	auto mapSetTime = duration_cast<microseconds>(end - start);
 
-	start = high_resolution_clock::now();
-	_multimapSetA->IntersectionTwoSets(*_multimapSetB);
-	end = high_resolution_clock::now();
-	auto multimapSetTime = duration_cast<microseconds>(end - start);
 
-	return new Times(nodeTime, mySetTime, listSetTime, setSetTime, mapSetTime, multimapSetTime);
+	start = high_resolution_clock::now();
+	_unorderedMapSetA->IntersectionTwoSets(*_unorderedMapSetB);
+	end = high_resolution_clock::now();
+	auto unorderedMapSetTime = duration_cast<microseconds>(end - start);
+
+	return new Times(nodeTime, mySetTime, listSetTime, setSetTime, mapSetTime, unorderedMapSetTime);
+
 }
 Times* MeasureStructs::getDifferenceTime() {
 	auto start = high_resolution_clock::now();
@@ -303,11 +335,12 @@ Times* MeasureStructs::getDifferenceTime() {
 	auto mapSetTime = duration_cast<microseconds>(end - start);
 
 	start = high_resolution_clock::now();
-	_multimapSetA->DifferenceTwoSets(*_multimapSetB);
+	_unorderedMapSetA->DifferenceTwoSets(*_unorderedMapSetB);
 	end = high_resolution_clock::now();
-	auto multimapSetTime = duration_cast<microseconds>(end - start);
+	auto unorderedMapSetTime = duration_cast<microseconds>(end - start);
 
-	return new Times(nodeTime, mySetTime, listSetTime, setSetTime, mapSetTime, multimapSetTime);
+	return new Times(nodeTime, mySetTime, listSetTime, setSetTime, mapSetTime, unorderedMapSetTime);
+
 }
 
 Times* MeasureStructs::get2DifferenceTime() {
@@ -336,12 +369,14 @@ Times* MeasureStructs::get2DifferenceTime() {
 	end = high_resolution_clock::now();
 	auto mapSetTime = duration_cast<microseconds>(end - start);
 
-	start = high_resolution_clock::now();
-	_multimapSetB->DifferenceTwoSets(*_multimapSetA);
-	end = high_resolution_clock::now();
-	auto multimapSetTime = duration_cast<microseconds>(end - start);
 
-	return new Times(nodeTime, mySetTime, listSetTime, setSetTime, mapSetTime, multimapSetTime);
+	start = high_resolution_clock::now();
+	_unorderedMapSetB->DifferenceTwoSets(*_unorderedMapSetA);
+	end = high_resolution_clock::now();
+	auto unorderedMapSetTime = duration_cast<microseconds>(end - start);
+
+	return new Times(nodeTime, mySetTime, listSetTime, setSetTime, mapSetTime, unorderedMapSetTime);
+
 }
 Times* MeasureStructs::getSymmetricDifferenceTime() {
 	auto start = high_resolution_clock::now();
@@ -369,10 +404,12 @@ Times* MeasureStructs::getSymmetricDifferenceTime() {
 	end = high_resolution_clock::now();
 	auto mapSetTime = duration_cast<microseconds>(end - start);
 
-	start = high_resolution_clock::now();
-	_multimapSetA->SymmetricalDifferenceTwoSets(*_multimapSetB);
-	end = high_resolution_clock::now();
-	auto multimapSetTime = duration_cast<microseconds>(end - start);
 
-	return new Times(nodeTime, mySetTime, listSetTime, setSetTime, mapSetTime, multimapSetTime);
+	start = high_resolution_clock::now();
+	_unorderedMapSetA->SymmetricalDifferenceTwoSets(*_unorderedMapSetB);
+	end = high_resolution_clock::now();
+	auto unorderedMapSetTime = duration_cast<microseconds>(end - start);
+
+	return new Times(nodeTime, mySetTime, listSetTime, setSetTime, mapSetTime, unorderedMapSetTime);
+
 }

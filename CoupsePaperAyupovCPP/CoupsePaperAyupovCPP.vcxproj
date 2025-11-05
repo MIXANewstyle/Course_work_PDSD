@@ -24,6 +24,7 @@
     <ProjectGuid>{2df2fcf2-52f1-486b-8367-1ddfd1d12aa2}</ProjectGuid>
     <RootNamespace>CoupsePaperAyupovCPP</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>CourseWork_Ushakov_22VP1</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -127,27 +128,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CoupsePaperAyupovCPP.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="ListSet.cpp" />
     <ClCompile Include="MapSet.cpp" />
     <ClCompile Include="MeasureStructs.cpp" />
-    <ClCompile Include="MultimapSet.cpp" />
     <ClCompile Include="MySet.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="SetSet.cpp" />
     <ClCompile Include="Times.cpp" />
     <ClCompile Include="UI.cpp" />
+    <ClCompile Include="UnorderedmapSet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ListSet.h" />
     <ClInclude Include="MapSet.h" />
     <ClInclude Include="MeasureStructs.h" />
-    <ClInclude Include="MultimapSet.h" />
     <ClInclude Include="MySet.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="SetSet.h" />
     <ClInclude Include="Times.h" />
     <ClInclude Include="UI.h" />
+    <ClInclude Include="UnorderedMapSet.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -2,7 +2,7 @@
 
 void UI::showTable() {
 	// Заголовки столбцов
-	vector<string> headers = { "Односвязный список", "Класс 'Список'", "List", "Set", "Map", "Multimap" };
+	vector<string> headers = { "Односвязный список", "Класс 'Список'", "List", "Set", "Map", "Unorderedmap" };
 
 	MeasureStructs* measureStructs = new MeasureStructs(_powerOfSetA, _powerOfSetB);
 	Times* createTimes = measureStructs->getCreateTime();
@@ -10,7 +10,7 @@ void UI::showTable() {
 	Times* underAATimes = measureStructs->getUnderAATime();
 	Times* underABTimes = measureStructs->getUnderABTime();
 	Times* isEqualAATimes = measureStructs->getEqualityAATime();
-	Times* isEqualABTimes = measureStructs->getEqualityAATime();
+	Times* isEqualABTimes = measureStructs->getEqualityABTime();
 	Times* combiningTimes = measureStructs->getCombiningTime();
 	Times* intersectionTimes = measureStructs->getIntersectionTime();
 	Times* differenceTimes = measureStructs->getDifferenceTime();
@@ -18,17 +18,17 @@ void UI::showTable() {
 	Times* symDifferenceTimes = measureStructs->getSymmetricDifferenceTime();
 
 	vector<vector<string>> data = {
-		{"Создание множества (мкс)", createTimes->nodeTime, createTimes->mySetTime, createTimes->listSetTime, createTimes->setSetTime, createTimes->mapSetTime, createTimes->multimapSetTime},
-		{"Мощность (мкс)", sizeTimes->nodeTime , sizeTimes->mySetTime, sizeTimes->listSetTime , sizeTimes->setSetTime, sizeTimes->mapSetTime, sizeTimes->multimapSetTime},
-		{"Подмножество A-A (мкс)",underAATimes->nodeTime , underAATimes->mySetTime,underAATimes->listSetTime , underAATimes->setSetTime, underAATimes->mapSetTime, underAATimes->multimapSetTime},
-		{"Подмножество B-A (мкс)", underABTimes->nodeTime , underABTimes->mySetTime,underABTimes->listSetTime , underABTimes->setSetTime, underABTimes->mapSetTime, underABTimes->multimapSetTime},
-		{"Равенство A-A (мкс)",isEqualAATimes->nodeTime , isEqualAATimes->mySetTime,isEqualAATimes->listSetTime , isEqualAATimes->setSetTime, isEqualAATimes->mapSetTime, isEqualAATimes->multimapSetTime},
-		{"Равенство B-A (мкс)", isEqualABTimes->nodeTime , isEqualABTimes->mySetTime,isEqualABTimes->listSetTime , isEqualABTimes->setSetTime, isEqualABTimes->mapSetTime, isEqualABTimes->multimapSetTime},
-		{"Объединение (мкс)", combiningTimes->nodeTime , combiningTimes->mySetTime,combiningTimes->listSetTime , combiningTimes->setSetTime, combiningTimes->mapSetTime, combiningTimes->multimapSetTime},
-		{"Пересечение (мкс)", intersectionTimes->nodeTime , intersectionTimes->mySetTime,intersectionTimes->listSetTime , intersectionTimes->setSetTime, intersectionTimes->mapSetTime, intersectionTimes->multimapSetTime},
-		{"Разность A-B (мкс)", differenceTimes->nodeTime , differenceTimes->mySetTime,differenceTimes->listSetTime , differenceTimes->setSetTime, differenceTimes->mapSetTime, differenceTimes->multimapSetTime},
-		{"Разность B-A (мкс)",difference2Times->nodeTime , difference2Times->mySetTime,difference2Times->listSetTime , difference2Times->setSetTime, difference2Times->mapSetTime, difference2Times->multimapSetTime},
-		{"Сим-ная разность (мкс)", symDifferenceTimes->nodeTime , symDifferenceTimes->mySetTime,symDifferenceTimes->listSetTime , symDifferenceTimes->setSetTime, symDifferenceTimes->mapSetTime, symDifferenceTimes->multimapSetTime},
+		{"Создание множества (мкс)", createTimes->nodeTime, createTimes->mySetTime, createTimes->listSetTime, createTimes->setSetTime, createTimes->mapSetTime, createTimes->unorderedMapSetTime},
+		{"Мощность (мкс)", sizeTimes->nodeTime , sizeTimes->mySetTime, sizeTimes->listSetTime , sizeTimes->setSetTime, sizeTimes->mapSetTime, sizeTimes->unorderedMapSetTime},
+		{"Подмножество A-A (мкс)",underAATimes->nodeTime , underAATimes->mySetTime,underAATimes->listSetTime , underAATimes->setSetTime, underAATimes->mapSetTime, underAATimes->unorderedMapSetTime},
+		{"Подмножество B-A (мкс)", underABTimes->nodeTime , underABTimes->mySetTime,underABTimes->listSetTime , underABTimes->setSetTime, underABTimes->mapSetTime, underABTimes->unorderedMapSetTime},
+		{"Равенство A-A (мкс)",isEqualAATimes->nodeTime , isEqualAATimes->mySetTime,isEqualAATimes->listSetTime , isEqualAATimes->setSetTime, isEqualAATimes->mapSetTime, isEqualAATimes->unorderedMapSetTime},
+		{"Равенство B-A (мкс)", isEqualABTimes->nodeTime , isEqualABTimes->mySetTime,isEqualABTimes->listSetTime , isEqualABTimes->setSetTime, isEqualABTimes->mapSetTime, isEqualABTimes->unorderedMapSetTime},
+		{"Объединение (мкс)", combiningTimes->nodeTime , combiningTimes->mySetTime,combiningTimes->listSetTime , combiningTimes->setSetTime, combiningTimes->mapSetTime, combiningTimes->unorderedMapSetTime},
+		{"Пересечение (мкс)", intersectionTimes->nodeTime , intersectionTimes->mySetTime,intersectionTimes->listSetTime , intersectionTimes->setSetTime, intersectionTimes->mapSetTime, intersectionTimes->unorderedMapSetTime},
+		{"Разность A-B (мкс)", differenceTimes->nodeTime , differenceTimes->mySetTime,differenceTimes->listSetTime , differenceTimes->setSetTime, differenceTimes->mapSetTime, differenceTimes->unorderedMapSetTime},
+		{"Разность B-A (мкс)",difference2Times->nodeTime , difference2Times->mySetTime,difference2Times->listSetTime , difference2Times->setSetTime, difference2Times->mapSetTime, difference2Times->unorderedMapSetTime},
+		{"Сим-ная разность (мкс)", symDifferenceTimes->nodeTime , symDifferenceTimes->mySetTime,symDifferenceTimes->listSetTime , symDifferenceTimes->setSetTime, symDifferenceTimes->mapSetTime, symDifferenceTimes->unorderedMapSetTime},
 	};
 	// Вывод заголовков
 	std::cout << left << setw(25) << " ";
@@ -48,32 +48,51 @@ void UI::showTable() {
 }
 
 void UI::run() {
-	std::cout << "Курсовая работа по ПДСД \nВыполнил студент группы 23ВП1 Аюпов Марат " << endl;
+	std::cout << "Курсовая работа по ПДСД \nВыполнил студент группы 22ВП1 Ушаков Михаил" << endl;
 	enterPowerOfSets();
 	showTable();
 }
 
 void UI::enterPowerOfSets() {
-	string powerOfSetA;
-	string powerOfSetB;
-	std::cout << "Введите мощность первого множества: ";
-	cin >> powerOfSetA;
-	std::cout << endl << "Введите мощность второго множества: ";
-	cin >> powerOfSetB;
-	
-	try {
-		_powerOfSetA = std::stoi(powerOfSetA);
-		_powerOfSetB = std::stoi(powerOfSetB);
-	}
-	catch (const std::invalid_argument& e) {
-		std::cerr << "Ошибка: строка не является числом!" << std::endl;
-		enterPowerOfSets();
-	}
-	if (_powerOfSetA <= 0 || _powerOfSetB <= 0) {
-		std::cout << "Мощность множества не может быть <= 0" << endl;
-		enterPowerOfSets();
+	string powerOfSetA, powerOfSetB;
+	bool a_ok = false;
+	bool b_ok = false;
+
+	// Цикл для первого числа
+	while (!a_ok) {
+		std::cout << "Введите мощность первого множества: ";
+		cin >> powerOfSetA;
+		try {
+			_powerOfSetA = std::stoi(powerOfSetA);
+			if (_powerOfSetA <= 0) {
+				std::cout << "Мощность множества не может быть <= 0" << endl;
+			}
+			else {
+				a_ok = true; // Число корректно, выходим из цикла
+			}
+		}
+		catch (const std::invalid_argument& e) {
+			std::cerr << "Ошибка: строка не является числом!" << std::endl;
+		}
 	}
 
+	// Цикл для второго числа
+	while (!b_ok) {
+		std::cout << endl << "Введите мощность второго множества: ";
+		cin >> powerOfSetB;
+		try {
+			_powerOfSetB = std::stoi(powerOfSetB);
+			if (_powerOfSetB <= 0) {
+				std::cout << "Мощность множества не может быть <= 0" << endl;
+			}
+			else {
+				b_ok = true; // Число корректно, выходим из цикла
+			}
+		}
+		catch (const std::invalid_argument& e) {
+			std::cerr << "Ошибка: строка не является числом!" << std::endl;
+		}
+	}
 }
 
 void UI::clearConsole() {
