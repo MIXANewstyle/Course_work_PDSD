@@ -14,7 +14,10 @@ public:
 	// Используем unordered_map.
 	// Ключ (int) - это элемент.
 	// Значение (int) - это "заглушка"
+
+
 	unordered_map<int, int> unorderedMapSet;
+
 
 	// --- Описания методов 
 	UnorderedMapSet();
