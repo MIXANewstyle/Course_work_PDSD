@@ -131,7 +131,6 @@
     <ClCompile Include="ListSet.cpp" />
     <ClCompile Include="MapSet.cpp" />
     <ClCompile Include="MeasureStructs.cpp" />
-    <ClCompile Include="MultimapSet.cpp" />
     <ClCompile Include="MySet.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="SetSet.cpp" />
@@ -143,7 +142,6 @@
     <ClInclude Include="ListSet.h" />
     <ClInclude Include="MapSet.h" />
     <ClInclude Include="MeasureStructs.h" />
-    <ClInclude Include="MultimapSet.h" />
     <ClInclude Include="MySet.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="SetSet.h" />

@@ -39,9 +39,6 @@
     <ClCompile Include="MapSet.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="MultimapSet.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="Times.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -69,9 +66,6 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="MapSet.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="MultimapSet.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Times.h">

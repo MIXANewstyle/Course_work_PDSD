@@ -18,17 +18,17 @@ void UI::showTable() {
 	Times* symDifferenceTimes = measureStructs->getSymmetricDifferenceTime();
 
 	vector<vector<string>> data = {
-		{"Создание множества (мкс)", createTimes->nodeTime, createTimes->mySetTime, createTimes->listSetTime, createTimes->setSetTime, createTimes->mapSetTime, createTimes->multimapSetTime},
-		{"Мощность (мкс)", sizeTimes->nodeTime , sizeTimes->mySetTime, sizeTimes->listSetTime , sizeTimes->setSetTime, sizeTimes->mapSetTime, sizeTimes->multimapSetTime},
-		{"Подмножество A-A (мкс)",underAATimes->nodeTime , underAATimes->mySetTime,underAATimes->listSetTime , underAATimes->setSetTime, underAATimes->mapSetTime, underAATimes->multimapSetTime},
-		{"Подмножество B-A (мкс)", underABTimes->nodeTime , underABTimes->mySetTime,underABTimes->listSetTime , underABTimes->setSetTime, underABTimes->mapSetTime, underABTimes->multimapSetTime},
-		{"Равенство A-A (мкс)",isEqualAATimes->nodeTime , isEqualAATimes->mySetTime,isEqualAATimes->listSetTime , isEqualAATimes->setSetTime, isEqualAATimes->mapSetTime, isEqualAATimes->multimapSetTime},
-		{"Равенство B-A (мкс)", isEqualABTimes->nodeTime , isEqualABTimes->mySetTime,isEqualABTimes->listSetTime , isEqualABTimes->setSetTime, isEqualABTimes->mapSetTime, isEqualABTimes->multimapSetTime},
-		{"Объединение (мкс)", combiningTimes->nodeTime , combiningTimes->mySetTime,combiningTimes->listSetTime , combiningTimes->setSetTime, combiningTimes->mapSetTime, combiningTimes->multimapSetTime},
-		{"Пересечение (мкс)", intersectionTimes->nodeTime , intersectionTimes->mySetTime,intersectionTimes->listSetTime , intersectionTimes->setSetTime, intersectionTimes->mapSetTime, intersectionTimes->multimapSetTime},
-		{"Разность A-B (мкс)", differenceTimes->nodeTime , differenceTimes->mySetTime,differenceTimes->listSetTime , differenceTimes->setSetTime, differenceTimes->mapSetTime, differenceTimes->multimapSetTime},
-		{"Разность B-A (мкс)",difference2Times->nodeTime , difference2Times->mySetTime,difference2Times->listSetTime , difference2Times->setSetTime, difference2Times->mapSetTime, difference2Times->multimapSetTime},
-		{"Сим-ная разность (мкс)", symDifferenceTimes->nodeTime , symDifferenceTimes->mySetTime,symDifferenceTimes->listSetTime , symDifferenceTimes->setSetTime, symDifferenceTimes->mapSetTime, symDifferenceTimes->multimapSetTime},
+		{"Создание множества (мкс)", createTimes->nodeTime, createTimes->mySetTime, createTimes->listSetTime, createTimes->setSetTime, createTimes->mapSetTime, createTimes->unorderedMapSetTime},
+		{"Мощность (мкс)", sizeTimes->nodeTime , sizeTimes->mySetTime, sizeTimes->listSetTime , sizeTimes->setSetTime, sizeTimes->mapSetTime, sizeTimes->unorderedMapSetTime},
+		{"Подмножество A-A (мкс)",underAATimes->nodeTime , underAATimes->mySetTime,underAATimes->listSetTime , underAATimes->setSetTime, underAATimes->mapSetTime, underAATimes->unorderedMapSetTime},
+		{"Подмножество B-A (мкс)", underABTimes->nodeTime , underABTimes->mySetTime,underABTimes->listSetTime , underABTimes->setSetTime, underABTimes->mapSetTime, underABTimes->unorderedMapSetTime},
+		{"Равенство A-A (мкс)",isEqualAATimes->nodeTime , isEqualAATimes->mySetTime,isEqualAATimes->listSetTime , isEqualAATimes->setSetTime, isEqualAATimes->mapSetTime, isEqualAATimes->unorderedMapSetTime},
+		{"Равенство B-A (мкс)", isEqualABTimes->nodeTime , isEqualABTimes->mySetTime,isEqualABTimes->listSetTime , isEqualABTimes->setSetTime, isEqualABTimes->mapSetTime, isEqualABTimes->unorderedMapSetTime},
+		{"Объединение (мкс)", combiningTimes->nodeTime , combiningTimes->mySetTime,combiningTimes->listSetTime , combiningTimes->setSetTime, combiningTimes->mapSetTime, combiningTimes->unorderedMapSetTime},
+		{"Пересечение (мкс)", intersectionTimes->nodeTime , intersectionTimes->mySetTime,intersectionTimes->listSetTime , intersectionTimes->setSetTime, intersectionTimes->mapSetTime, intersectionTimes->unorderedMapSetTime},
+		{"Разность A-B (мкс)", differenceTimes->nodeTime , differenceTimes->mySetTime,differenceTimes->listSetTime , differenceTimes->setSetTime, differenceTimes->mapSetTime, differenceTimes->unorderedMapSetTime},
+		{"Разность B-A (мкс)",difference2Times->nodeTime , difference2Times->mySetTime,difference2Times->listSetTime , difference2Times->setSetTime, difference2Times->mapSetTime, difference2Times->unorderedMapSetTime},
+		{"Сим-ная разность (мкс)", symDifferenceTimes->nodeTime , symDifferenceTimes->mySetTime,symDifferenceTimes->listSetTime , symDifferenceTimes->setSetTime, symDifferenceTimes->mapSetTime, symDifferenceTimes->unorderedMapSetTime},
 	};
 	// Вывод заголовков
 	std::cout << left << setw(25) << " ";
